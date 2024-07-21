@@ -9,28 +9,40 @@ import XCTest
 @testable import CathayBKHK
 
 final class CathayBKHKTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    
+    func testProductionBaseUrl() {
+        let expectedUrl = URL(string: "https://dimanyen.github.io")!
+        XCTAssertEqual(ServerConfig.production.apiBaseUrl, expectedUrl, "Production base URL is incorrect.")
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testDevelopmentBaseUrl() {
+        let expectedUrl = URL(string: "https://github.io")!
+        XCTAssertEqual(ServerConfig.development.apiBaseUrl, expectedUrl, "Development base URL is incorrect.")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testAddFriendPath() {
+        let expectedPath = Route.userInfo.requestProperties.path
+        XCTAssertEqual("/man.json", expectedPath, "AddFriend Path was Changed.")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testFriendListV1Path() {
+        let expectedPath = Route.friend(page: 1).requestProperties.path
+        XCTAssertEqual("friend1.json", expectedPath, "FriendListV1 Path was Changed.")
     }
-
+    
+    func testFriendListV2Path() {
+        let expectedPath = Route.friend(page: 2).requestProperties.path
+        XCTAssertEqual("friend2.json", expectedPath, "FriendListV2 Path was Changed.")
+    }
+    
+    func testFriendListWithInvitePath() {
+        let expectedPath = Route.friend(page: 3).requestProperties.path
+        XCTAssertEqual("friend3.json", expectedPath, "FriendListWithInvite Path was Changed.")
+    }
+    
+    func testEmptyFriendList() {
+        let expectedPath = Route.friend(page: 4).requestProperties.path
+        XCTAssertEqual("friend4.json", expectedPath, "EmptyFriendList Path was Changed.")
+    }
 }
