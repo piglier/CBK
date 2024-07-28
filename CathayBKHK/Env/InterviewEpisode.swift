@@ -6,11 +6,10 @@
 //
 
 /**
- 
- 
- **/
-
-
+ episode1:  無任何好友的情況
+ episode2:  有好友與邀請其他的情況
+ episode3:  有好友與被邀請的情況
+ */
 
 enum InterviewEpisode: String {
     

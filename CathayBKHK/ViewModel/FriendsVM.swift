@@ -89,7 +89,9 @@ struct FriendsVM: Reducer {
                     state.disableSearchbar = true
                 case .episode2:
                     let merged = mergePersons(previous: state.friendList, new: person)
-                    state.friendList = merged
+                    var filtered = merged.filter { $0.status == 2}
+                    let other = merged.filter {$0.status != 2}
+                    state.friendList = filtered + other
                     state.isRefreshing = false
                     state.sorts = [
                         SortPagerParams(title: "好友", badgeNumber: merged.filter({ $0.status == 2 }).count ),
