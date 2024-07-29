@@ -5,12 +5,13 @@
 //  Created by 朱彥睿 on 2024/7/6.
 //
 
-import Foundation
 import UIKit
 
 
 
 final class TabBarView: UIView {
+    
+    var tabSelectedHandler: ((Int) -> Void)?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -33,6 +34,13 @@ final class TabBarView: UIView {
                 return UIImage(named: "ic_tabbar_setting")
             }
         }.compactMap { $0 }
+        
+        for (index, imageView) in imageViews.enumerated() {
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tabTapped(_:)))
+            imageView.addGestureRecognizer(tapGestureRecognizer)
+            imageView.isUserInteractionEnabled = true
+            imageView.tag = index
+        }
     }
     
     // MARK: Private Functions
@@ -55,6 +63,12 @@ final class TabBarView: UIView {
             origin.x += size.width + spacing
         }
     }
+    
+    @objc private func tabTapped(_ sender: UITapGestureRecognizer) {
+            guard let view = sender.view else { return }
+            tabSelectedHandler?(view.tag)
+    }
+    
     // MARK: - Private Properties
     
     private lazy var lineView = {

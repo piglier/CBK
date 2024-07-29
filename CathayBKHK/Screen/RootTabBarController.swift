@@ -10,8 +10,8 @@ import ComposableArchitecture
 import Combine
 
 final class RootTabBarController: UITabBarController {
-    let store: StoreOf<RootTabBarVM>
-    let viewStore: ViewStoreOf<RootTabBarVM>
+    private let store: StoreOf<RootTabBarVM>
+    private let viewStore: ViewStoreOf<RootTabBarVM>
     
     init() {
         self.store = Store(initialState: RootTabBarVM.State(), reducer: { RootTabBarVM() })
@@ -90,7 +90,14 @@ final class RootTabBarController: UITabBarController {
     
     private func setTabBarItemStyles() {
         rootTabBar.populate(tabBarItemsData: viewStore.tabBarItemsData)
+        rootTabBar.tabSelectedHandler = {[weak self] index in
+            self?.handleTabSelection(index: index)
+        }
     }
+    
+    private func handleTabSelection(index: Int) {
+        store.send(.selectedIndex(index))
+        }
     
     fileprivate static func viewController(from viewControllerData: RootViewControllerData) -> UIViewController {
         switch viewControllerData {

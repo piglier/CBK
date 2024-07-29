@@ -89,7 +89,7 @@ struct FriendsVM: Reducer {
                     state.disableSearchbar = true
                 case .episode2:
                     let merged = mergePersons(previous: state.friendList, new: person)
-                    var filtered = merged.filter { $0.status == 2}
+                    let filtered = merged.filter { $0.status == 2}
                     let other = merged.filter {$0.status != 2}
                     state.friendList = filtered + other
                     state.isRefreshing = false
