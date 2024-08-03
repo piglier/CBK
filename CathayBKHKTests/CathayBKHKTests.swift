@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import ComposableArchitecture
 @testable import CathayBKHK
 
 final class CathayBKHKTests: XCTestCase {
@@ -45,4 +46,25 @@ final class CathayBKHKTests: XCTestCase {
         let expectedPath = Route.friend(page: 4).requestProperties.path
         XCTAssertEqual("friend4.json", expectedPath, "EmptyFriendList Path was Changed.")
     }
+    
+    func testCurrentUser() {
+        NotificationCenter.default.addObserver(forName: .userUpdated, object: nil, queue: nil) { _ in
+            self.friendViewStore.send(.currentUserUpdated)
+        }
+        let user = User(name: "蔡國泰", kokoID: "Mike")
+        AppEnvironment.updateCurrentUser(user)
+        NotificationCenter.default.post(name: .userUpdated, object: nil)
+        let currentUser = friendViewStore.state.currentUser ?? User(name: "", kokoID: "")
+        XCTAssertEqual(currentUser, user)
+        NotificationCenter.default.removeObserver(self, name: .userUpdated, object: nil)
+    }
+    
+    
+    private let friendsStore = Store(initialState: FriendsVM.State(), reducer: { FriendsVM(episode: AppEnvironment.current.episode) })
+    
+    private lazy var friendViewStore = ViewStore(friendsStore, observe: { $0 })
+    
+//    private let sortStore = Store(initialState: SortPagerVM.State(), reducer: { SortPagerVM() })
+//    
+//    private lazy var sortViewStore = ViewStore(sortStore, observe: { $0 })
 }
