@@ -63,8 +63,6 @@
 		53DBC5962C39717B00A549EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBC5952C39717B00A549EF /* Color.swift */; };
 		53DBC5982C3971BC00A549EF /* Component+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBC5972C3971BC00A549EF /* Component+.swift */; };
 		53DBC59C2C39732400A549EF /* NavigationHeaderPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBC59B2C39732400A549EF /* NavigationHeaderPanelLayout.swift */; };
-		53DBC59E2C3973AE00A549EF /* PersonalInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBC59D2C3973AE00A549EF /* PersonalInfoComponent.swift */; };
-		53DBC5A22C3A1D8600A549EF /* FriendsInvitationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBC5A12C3A1D8600A549EF /* FriendsInvitationComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,8 +140,6 @@
 		53DBC5952C39717B00A549EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		53DBC5972C3971BC00A549EF /* Component+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Component+.swift"; sourceTree = "<group>"; };
 		53DBC59B2C39732400A549EF /* NavigationHeaderPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeaderPanelLayout.swift; sourceTree = "<group>"; };
-		53DBC59D2C3973AE00A549EF /* PersonalInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoComponent.swift; sourceTree = "<group>"; };
-		53DBC5A12C3A1D8600A549EF /* FriendsInvitationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsInvitationComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,8 +349,6 @@
 			children = (
 				53DBC5952C39717B00A549EF /* Color.swift */,
 				53DBC59B2C39732400A549EF /* NavigationHeaderPanelLayout.swift */,
-				53DBC59D2C3973AE00A549EF /* PersonalInfoComponent.swift */,
-				53DBC5A12C3A1D8600A549EF /* FriendsInvitationComponent.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -504,7 +498,6 @@
 				53DBC5592C39155900A549EF /* RootTabBarVM.swift in Sources */,
 				53DBC5962C39717B00A549EF /* Color.swift in Sources */,
 				53DBC56B2C39197900A549EF /* View.swift in Sources */,
-				53DBC59E2C3973AE00A549EF /* PersonalInfoComponent.swift in Sources */,
 				53DBC5452C39135600A549EF /* InterviewEpisode.swift in Sources */,
 				53DBC54B2C39139D00A549EF /* Notifications.swift in Sources */,
 				53DBC55D2C3915DA00A549EF /* FriendListVM.swift in Sources */,
@@ -546,7 +539,6 @@
 				53DBC56D2C3919C900A549EF /* WrappedView.swift in Sources */,
 				53DBC50F2C34E46500A549EF /* UIColor+.swift in Sources */,
 				53DBC5542C3914B200A549EF /* SortPagerVM.swift in Sources */,
-				53DBC5A22C3A1D8600A549EF /* FriendsInvitationComponent.swift in Sources */,
 				53DBC57B2C39218000A549EF /* FriendsListViewController.swift in Sources */,
 				53DBC5412C390ED900A549EF /* Service+RequestHelpers.swift in Sources */,
 			);
